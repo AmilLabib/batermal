@@ -54,80 +54,80 @@ const AIPage = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-display font-bold text-brown-900 flex items-center space-x-3">
-            <Brain className="w-10 h-10 text-brown-700" />
+          <h1 className="text-2xl sm:text-3xl font-display font-bold text-brown-900 flex items-center space-x-2 sm:space-x-3">
+            <Brain className="w-8 h-8 sm:w-10 sm:h-10 text-brown-700" />
             <span>{t('ai.title')}</span>
           </h1>
-          <p className="text-gray-600 mt-1">AI-powered insights and optimization recommendations</p>
+          <p className="text-sm sm:text-base text-gray-600 mt-1">AI-powered insights and optimization recommendations</p>
         </div>
-        <div className="flex items-center space-x-2 px-4 py-2 bg-purple-100 rounded-lg border border-purple-200">
+        <div className="flex items-center space-x-2 px-3 sm:px-4 py-2 bg-purple-100 rounded-lg border border-purple-200">
           <div className="w-2 h-2 bg-purple-600 rounded-full animate-pulse"></div>
-          <span className="text-sm font-medium text-purple-800">AI Active</span>
+          <span className="text-xs sm:text-sm font-medium text-purple-800">AI Active</span>
         </div>
       </div>
 
       {/* Potential Savings */}
-      <div className="bg-gradient-to-br from-purple-700 to-indigo-900 rounded-2xl shadow-xl p-8 text-white">
-        <div className="flex items-center justify-between mb-6">
+      <div className="bg-gradient-to-br from-purple-700 to-indigo-900 rounded-xl md:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 text-white">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-3">
           <div>
-            <h2 className="text-2xl font-bold mb-2">{t('ai.savings')}</h2>
-            <p className="text-purple-200">Based on current AI recommendations</p>
+            <h2 className="text-xl sm:text-2xl font-bold mb-2">{t('ai.savings')}</h2>
+            <p className="text-sm sm:text-base text-purple-200">Based on current AI recommendations</p>
           </div>
-          <TrendingUp className="w-12 h-12 text-purple-300" />
+          <TrendingUp className="w-10 h-10 sm:w-12 sm:h-12 text-purple-300" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <p className="text-purple-200 text-sm mb-1">Monthly Potential</p>
-            <p className="text-4xl font-bold">Rp 24.4M</p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
+            <p className="text-xs sm:text-sm text-purple-200 mb-1">Monthly Potential</p>
+            <p className="text-3xl sm:text-4xl font-bold">Rp 24.4M</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <p className="text-purple-200 text-sm mb-1">Efficiency Gain</p>
-            <p className="text-4xl font-bold">+6.2%</p>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
+            <p className="text-xs sm:text-sm text-purple-200 mb-1">Efficiency Gain</p>
+            <p className="text-3xl sm:text-4xl font-bold">+6.2%</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <p className="text-purple-200 text-sm mb-1">CO₂ Reduction</p>
-            <p className="text-4xl font-bold">+4.8 tons</p>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
+            <p className="text-xs sm:text-sm text-purple-200 mb-1">CO₂ Reduction</p>
+            <p className="text-3xl sm:text-4xl font-bold">+4.8 tons</p>
           </div>
         </div>
       </div>
 
       {/* AI Recommendations */}
-      <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-        <h2 className="text-xl font-bold text-brown-900 mb-6">{t('ai.recommendations')}</h2>
-        <div className="space-y-4">
+      <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border border-gray-100">
+        <h2 className="text-lg sm:text-xl font-bold text-brown-900 mb-4 md:mb-6">{t('ai.recommendations')}</h2>
+        <div className="space-y-3 md:space-y-4">
           {recommendations.map((rec) => (
             <div
               key={rec.id}
-              className={`p-6 rounded-xl border-2 transition-all ${
+              className={`p-4 sm:p-6 rounded-xl border-2 transition-all ${
                 rec.implemented
                   ? 'bg-green-50 border-green-200'
                   : 'bg-white border-gray-200 hover:border-brown-300 hover:shadow-md'
               }`}
             >
-              <div className="flex items-start justify-between">
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3">
                 <div className="flex-1">
-                  <div className="flex items-center space-x-3 mb-3">
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
                     {getPriorityIcon(rec.priority)}
-                    <h3 className="text-lg font-bold text-brown-900">{rec.title}</h3>
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getPriorityColor(rec.priority)}`}>
+                    <h3 className="text-base sm:text-lg font-bold text-brown-900">{rec.title}</h3>
+                    <span className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium border ${getPriorityColor(rec.priority)}`}>
                       {rec.priority.toUpperCase()}
                     </span>
                     {rec.implemented && (
-                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 border border-green-200 flex items-center space-x-1">
+                      <span className="px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 border border-green-200 flex items-center space-x-1">
                         <CheckCircle className="w-3 h-3" />
                         <span>Implemented</span>
                       </span>
                     )}
                   </div>
-                  <p className="text-gray-700 mb-4">{rec.description}</p>
+                  <p className="text-sm sm:text-base text-gray-700 mb-4">{rec.description}</p>
                   {rec.potentialSavings > 0 && (
                     <div className="flex items-center space-x-2 text-green-600">
-                      <DollarSign className="w-5 h-5" />
-                      <span className="font-semibold">
+                      <DollarSign className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="text-sm sm:text-base font-semibold">
                         Potential Savings: Rp {(rec.potentialSavings / 1000000).toFixed(1)}M/month
                       </span>
                     </div>
@@ -136,7 +136,7 @@ const AIPage = () => {
                 {!rec.implemented && (
                   <button
                     onClick={() => handleImplement(rec.id)}
-                    className="ml-4 px-6 py-2 bg-brown-700 text-white rounded-lg hover:bg-brown-800 transition-all font-medium"
+                    className="px-4 sm:px-6 py-2 bg-brown-700 text-white rounded-lg hover:bg-brown-800 transition-all font-medium text-sm sm:text-base whitespace-nowrap"
                   >
                     {t('ai.implement')}
                   </button>
@@ -148,25 +148,26 @@ const AIPage = () => {
       </div>
 
       {/* Energy Predictions */}
-      <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-        <h2 className="text-xl font-bold text-brown-900 mb-6">{t('ai.predictions')}</h2>
-        <ResponsiveContainer width="100%" height={350}>
+      <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border border-gray-100">
+        <h2 className="text-lg sm:text-xl font-bold text-brown-900 mb-4 md:mb-6">{t('ai.predictions')}</h2>
+        <ResponsiveContainer width="100%" height={300} className="md:h-[350px]">
           <LineChart data={predictionData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis dataKey="hour" stroke="#888" fontSize={12} />
-            <YAxis stroke="#888" fontSize={12} />
+            <XAxis dataKey="hour" stroke="#888" fontSize={10} className="sm:text-xs" />
+            <YAxis stroke="#888" fontSize={10} className="sm:text-xs" />
             <Tooltip
               contentStyle={{
                 backgroundColor: '#fff',
                 border: '1px solid #ddd',
-                borderRadius: '8px'
+                borderRadius: '8px',
+                fontSize: '12px'
               }}
             />
             <Line
               type="monotone"
               dataKey="predicted"
               stroke="#8b5cf6"
-              strokeWidth={3}
+              strokeWidth={2}
               strokeDasharray="5 5"
               name="AI Predicted (kWh)"
               dot={false}
@@ -175,74 +176,76 @@ const AIPage = () => {
               type="monotone"
               dataKey="actual"
               stroke="#52b788"
-              strokeWidth={3}
+              strokeWidth={2}
               name="Actual (kWh)"
               dot={false}
             />
           </LineChart>
         </ResponsiveContainer>
-        <div className="mt-4 p-4 bg-purple-50 rounded-lg border border-purple-200">
-          <p className="text-sm text-purple-800">
+        <div className="mt-4 p-3 md:p-4 bg-purple-50 rounded-lg border border-purple-200">
+          <p className="text-xs sm:text-sm text-purple-800">
             <span className="font-bold">AI Accuracy:</span> 94.2% prediction accuracy over the last 30 days
           </p>
         </div>
       </div>
 
       {/* Optimal Charging Schedule */}
-      <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-        <h2 className="text-xl font-bold text-brown-900 mb-6 flex items-center space-x-2">
-          <Clock className="w-6 h-6 text-brown-700" />
+      <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border border-gray-100">
+        <h2 className="text-lg sm:text-xl font-bold text-brown-900 mb-4 md:mb-6 flex items-center space-x-2">
+          <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-brown-700" />
           <span>{t('ai.optimalCharging')}</span>
         </h2>
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">Time Window</th>
-                <th className="text-center py-3 px-4 text-sm font-semibold text-gray-700">Priority</th>
-                <th className="text-center py-3 px-4 text-sm font-semibold text-gray-700">Electricity Rate</th>
-                <th className="text-right py-3 px-4 text-sm font-semibold text-gray-700">Est. Savings</th>
-              </tr>
-            </thead>
-            <tbody>
-              {chargingSchedule.map((schedule, index) => (
-                <tr key={index} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-4 font-semibold text-brown-900">{schedule.time}</td>
-                  <td className="py-4 px-4 text-center">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      schedule.priority === 'High' ? 'bg-green-100 text-green-800' :
-                      schedule.priority === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-gray-100 text-gray-800'
-                    }`}>
-                      {schedule.priority}
-                    </span>
-                  </td>
-                  <td className="py-4 px-4 text-center">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      schedule.rate === 'Low' ? 'bg-blue-100 text-blue-800' :
-                      schedule.rate === 'Medium' ? 'bg-orange-100 text-orange-800' :
-                      schedule.rate === 'Peak' ? 'bg-red-100 text-red-800' :
-                      'bg-red-100 text-red-800'
-                    }`}>
-                      {schedule.rate}
-                    </span>
-                  </td>
-                  <td className="py-4 px-4 text-right font-semibold text-green-600">
-                    {schedule.savings}
-                  </td>
+        <div className="overflow-x-auto -mx-4 sm:mx-0">
+          <div className="inline-block min-w-full align-middle px-4 sm:px-0">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-3 px-2 sm:px-4 text-xs sm:text-sm font-semibold text-gray-700">Time Window</th>
+                  <th className="text-center py-3 px-2 sm:px-4 text-xs sm:text-sm font-semibold text-gray-700">Priority</th>
+                  <th className="text-center py-3 px-2 sm:px-4 text-xs sm:text-sm font-semibold text-gray-700">Rate</th>
+                  <th className="text-right py-3 px-2 sm:px-4 text-xs sm:text-sm font-semibold text-gray-700">Savings</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {chargingSchedule.map((schedule, index) => (
+                  <tr key={index} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                    <td className="py-3 sm:py-4 px-2 sm:px-4 text-xs sm:text-sm font-semibold text-brown-900">{schedule.time}</td>
+                    <td className="py-3 sm:py-4 px-2 sm:px-4 text-center">
+                      <span className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${
+                        schedule.priority === 'High' ? 'bg-green-100 text-green-800' :
+                        schedule.priority === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-gray-100 text-gray-800'
+                      }`}>
+                        {schedule.priority}
+                      </span>
+                    </td>
+                    <td className="py-3 sm:py-4 px-2 sm:px-4 text-center">
+                      <span className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${
+                        schedule.rate === 'Low' ? 'bg-blue-100 text-blue-800' :
+                        schedule.rate === 'Medium' ? 'bg-orange-100 text-orange-800' :
+                        schedule.rate === 'Peak' ? 'bg-red-100 text-red-800' :
+                        'bg-red-100 text-red-800'
+                      }`}>
+                        {schedule.rate}
+                      </span>
+                    </td>
+                    <td className="py-3 sm:py-4 px-2 sm:px-4 text-right text-xs sm:text-sm font-semibold text-green-600">
+                      {schedule.savings}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
-          <div className="flex items-start space-x-3">
-            <Zap className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+        <div className="mt-4 md:mt-6 p-3 md:p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
+          <div className="flex items-start space-x-2 sm:space-x-3">
+            <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0 mt-1" />
             <div>
-              <p className="text-sm text-blue-900 font-semibold mb-2">
+              <p className="text-xs sm:text-sm text-blue-900 font-semibold mb-2">
                 {t('ai.costOptimization')} Recommendation
               </p>
-              <p className="text-sm text-blue-800">
+              <p className="text-xs sm:text-sm text-blue-800">
                 By following this AI-optimized charging schedule, you can save an estimated <span className="font-bold">Rp 12.4M per month</span> by leveraging off-peak electricity rates and reducing peak demand charges.
               </p>
             </div>

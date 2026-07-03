@@ -16,23 +16,23 @@ const BillingPage = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-display font-bold text-brown-900">
+        <h1 className="text-2xl sm:text-3xl font-display font-bold text-brown-900">
           {t('billing.title')}
         </h1>
-        <p className="text-gray-600 mt-1">Heat-as-a-Service billing and payment management</p>
+        <p className="text-sm sm:text-base text-gray-600 mt-1">Heat-as-a-Service billing and payment management</p>
       </div>
 
       {/* Current Period Bill */}
-      <div className="bg-gradient-to-br from-brown-700 to-brown-900 rounded-2xl shadow-xl p-8 text-white">
-        <div className="flex items-center justify-between mb-6">
+      <div className="bg-gradient-to-br from-brown-700 to-brown-900 rounded-xl md:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 text-white">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-3">
           <div>
-            <h2 className="text-2xl font-bold mb-2">{t('billing.currentBill')}</h2>
-            <p className="text-brown-200">{currentBill.period}</p>
+            <h2 className="text-xl sm:text-2xl font-bold mb-2">{t('billing.currentBill')}</h2>
+            <p className="text-sm sm:text-base text-brown-200">{currentBill.period}</p>
           </div>
-          <div className={`px-4 py-2 rounded-full text-sm font-medium ${
+          <div className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${
             currentBill.status === 'paid'
               ? 'bg-green-500/20 text-green-300 border border-green-400'
               : 'bg-yellow-500/20 text-yellow-300 border border-yellow-400'
@@ -41,23 +41,23 @@ const BillingPage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <p className="text-brown-200 text-sm mb-1">{t('billing.usage')}</p>
-            <p className="text-3xl font-bold">{currentBill.usage.toLocaleString()}</p>
-            <p className="text-brown-300 text-sm mt-1">kWh thermal</p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
+            <p className="text-xs sm:text-sm text-brown-200 mb-1">{t('billing.usage')}</p>
+            <p className="text-2xl sm:text-3xl font-bold">{currentBill.usage.toLocaleString()}</p>
+            <p className="text-xs sm:text-sm text-brown-300 mt-1">kWh thermal</p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <p className="text-brown-200 text-sm mb-1">{t('billing.rate')}</p>
-            <p className="text-3xl font-bold">Rp {currentBill.rate.toLocaleString()}</p>
-            <p className="text-brown-300 text-sm mt-1">per kWh</p>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
+            <p className="text-xs sm:text-sm text-brown-200 mb-1">{t('billing.rate')}</p>
+            <p className="text-2xl sm:text-3xl font-bold">Rp {currentBill.rate.toLocaleString()}</p>
+            <p className="text-xs sm:text-sm text-brown-300 mt-1">per kWh</p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <p className="text-brown-200 text-sm mb-1">{t('billing.total')}</p>
-            <p className="text-3xl font-bold">Rp {currentBill.amount.toLocaleString()}</p>
-            <p className="text-brown-300 text-sm mt-1">Due: {currentBill.dueDate.toLocaleDateString('id-ID')}</p>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
+            <p className="text-xs sm:text-sm text-brown-200 mb-1">{t('billing.total')}</p>
+            <p className="text-2xl sm:text-3xl font-bold">Rp {currentBill.amount.toLocaleString()}</p>
+            <p className="text-xs sm:text-sm text-brown-300 mt-1">Due: {currentBill.dueDate.toLocaleDateString('id-ID')}</p>
           </div>
         </div>
 
@@ -73,18 +73,18 @@ const BillingPage = () => {
       </div>
 
       {/* Cost Savings Info */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-              <TrendingDown className="w-6 h-6 text-green-600" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border border-gray-100">
+          <div className="flex items-center space-x-3 mb-3 md:mb-4">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-lg flex items-center justify-center">
+              <TrendingDown className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-600">vs Traditional</p>
-              <p className="text-2xl font-bold text-brown-900">-48.5%</p>
+              <p className="text-xs sm:text-sm text-gray-600">vs Traditional</p>
+              <p className="text-xl sm:text-2xl font-bold text-brown-900">-48.5%</p>
             </div>
           </div>
-          <p className="text-sm text-gray-600">
+          <p className="text-xs sm:text-sm text-gray-600">
             Savings: <span className="font-bold text-green-600">Rp 18.2M</span> this period
           </p>
         </div>

@@ -9,20 +9,20 @@ const SettingsPage = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-display font-bold text-brown-900">
+        <h1 className="text-2xl sm:text-3xl font-display font-bold text-brown-900">
           {t('nav.profile')} & Settings
         </h1>
-        <p className="text-gray-600 mt-1">Manage your account and application preferences</p>
+        <p className="text-sm sm:text-base text-gray-600 mt-1">Manage your account and application preferences</p>
       </div>
 
       {/* Company Profile */}
-      <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-        <div className="flex items-center space-x-3 mb-6">
-          <Building className="w-6 h-6 text-brown-700" />
-          <h2 className="text-xl font-bold text-brown-900">Company Profile</h2>
+      <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border border-gray-100">
+        <div className="flex items-center space-x-2 sm:space-x-3 mb-4 md:mb-6">
+          <Building className="w-5 h-5 sm:w-6 sm:h-6 text-brown-700" />
+          <h2 className="text-lg sm:text-xl font-bold text-brown-900">Company Profile</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

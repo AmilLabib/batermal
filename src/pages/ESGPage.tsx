@@ -12,45 +12,45 @@ const ESGPage = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-display font-bold text-brown-900">
+          <h1 className="text-2xl sm:text-3xl font-display font-bold text-brown-900">
             {t('esg.title')}
           </h1>
-          <p className="text-gray-600 mt-1">Environmental impact and sustainability metrics</p>
+          <p className="text-sm sm:text-base text-gray-600 mt-1">Environmental impact and sustainability metrics</p>
         </div>
-        <div className="flex space-x-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
           <button
             onClick={() => handleExport('pdf')}
-            className="flex items-center space-x-2 px-4 py-2 bg-brown-700 text-white rounded-lg hover:bg-brown-800 transition-all shadow-md"
+            className="flex items-center space-x-2 px-3 sm:px-4 py-2 bg-brown-700 text-white rounded-lg hover:bg-brown-800 transition-all shadow-md text-sm sm:text-base"
           >
-            <Download className="w-4 h-4" />
+            <Download className="w-3 h-3 sm:w-4 sm:h-4" />
             <span className="font-medium">Export PDF</span>
           </button>
           <button
             onClick={() => handleExport('excel')}
-            className="flex items-center space-x-2 px-4 py-2 bg-white text-brown-700 border-2 border-brown-700 rounded-lg hover:bg-brown-50 transition-all"
+            className="flex items-center space-x-2 px-3 sm:px-4 py-2 bg-white text-brown-700 border-2 border-brown-700 rounded-lg hover:bg-brown-50 transition-all text-sm sm:text-base"
           >
-            <FileText className="w-4 h-4" />
+            <FileText className="w-3 h-3 sm:w-4 sm:h-4" />
             <span className="font-medium">Export Excel</span>
           </button>
         </div>
       </div>
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl shadow-lg p-6 text-white">
-          <div className="flex items-center justify-between mb-4">
-            <Leaf className="w-10 h-10" />
-            <span className="text-xs font-medium px-3 py-1 bg-white/20 rounded-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl shadow-lg p-4 sm:p-6 text-white">
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
+            <Leaf className="w-8 h-8 sm:w-10 sm:h-10" />
+            <span className="text-xs font-medium px-2 sm:px-3 py-1 bg-white/20 rounded-full">
               Total
             </span>
           </div>
-          <p className="text-sm opacity-90 mb-1">{t('esg.totalReduction')}</p>
-          <p className="text-4xl font-bold">{esgMetrics.co2Reduced}</p>
-          <p className="text-sm opacity-90">tons CO₂</p>
+          <p className="text-xs sm:text-sm opacity-90 mb-1">{t('esg.totalReduction')}</p>
+          <p className="text-3xl sm:text-4xl font-bold">{esgMetrics.co2Reduced}</p>
+          <p className="text-xs sm:text-sm opacity-90">tons CO₂</p>
         </div>
 
         <div className="bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl shadow-lg p-6 text-white">
