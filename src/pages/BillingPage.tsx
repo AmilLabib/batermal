@@ -22,7 +22,7 @@ const BillingPage = () => {
         <h1 className="text-2xl sm:text-3xl font-display font-bold text-brown-900">
           {t('billing.title')}
         </h1>
-        <p className="text-sm sm:text-base text-gray-600 mt-1">Heat-as-a-Service billing and payment management</p>
+        <p className="text-sm sm:text-base text-stone-600 mt-1">Heat-as-a-Service billing and payment management</p>
       </div>
 
       {/* Current Period Bill */}
@@ -34,7 +34,7 @@ const BillingPage = () => {
           </div>
           <div className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${
             currentBill.status === 'paid'
-              ? 'bg-green-500/20 text-green-300 border border-green-400'
+              ? 'bg-amber-500/20 text-amber-300 border border-amber-400'
               : 'bg-yellow-500/20 text-yellow-300 border border-yellow-400'
           }`}>
             {currentBill.status === 'paid' ? t('billing.paid') : t('billing.pending')}
@@ -74,97 +74,97 @@ const BillingPage = () => {
 
       {/* Cost Savings Info */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border border-gray-100">
+        <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border border-stone-100">
           <div className="flex items-center space-x-3 mb-3 md:mb-4">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-lg flex items-center justify-center">
-              <TrendingDown className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+              <TrendingDown className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600" />
             </div>
             <div>
-              <p className="text-xs sm:text-sm text-gray-600">vs Traditional</p>
+              <p className="text-xs sm:text-sm text-stone-600">vs Traditional</p>
               <p className="text-xl sm:text-2xl font-bold text-brown-900">-48.5%</p>
             </div>
           </div>
-          <p className="text-xs sm:text-sm text-gray-600">
-            Savings: <span className="font-bold text-green-600">Rp 18.2M</span> this period
+          <p className="text-xs sm:text-sm text-stone-600">
+            Savings: <span className="font-bold text-amber-600">Rp 18.2M</span> this period
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-stone-100">
           <div className="flex items-center space-x-3 mb-4">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-              <CreditCard className="w-6 h-6 text-blue-600" />
+            <div className="w-12 h-12 bg-brown-100 rounded-lg flex items-center justify-center">
+              <CreditCard className="w-6 h-6 text-brown-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-600">Average Rate</p>
+              <p className="text-sm text-stone-600">Average Rate</p>
               <p className="text-2xl font-bold text-brown-900">Rp 870</p>
             </div>
           </div>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-stone-600">
             Per kWh thermal energy
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-stone-100">
           <div className="flex items-center space-x-3 mb-4">
             <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
               <CheckCircle className="w-6 h-6 text-orange-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-600">Total Paid YTD</p>
+              <p className="text-sm text-stone-600">Total Paid YTD</p>
               <p className="text-2xl font-bold text-brown-900">Rp 156M</p>
             </div>
           </div>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-stone-600">
             Year 2026
           </p>
         </div>
       </div>
 
       {/* Billing History */}
-      <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+      <div className="bg-white rounded-xl shadow-md p-6 border border-stone-100">
         <h2 className="text-xl font-bold text-brown-900 mb-6">{t('billing.history')}</h2>
         
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">
+              <tr className="border-b border-stone-200">
+                <th className="text-left py-3 px-4 text-sm font-semibold text-stone-700">
                   {t('billing.invoice')}
                 </th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">
+                <th className="text-left py-3 px-4 text-sm font-semibold text-stone-700">
                   {t('billing.date')}
                 </th>
-                <th className="text-right py-3 px-4 text-sm font-semibold text-gray-700">
+                <th className="text-right py-3 px-4 text-sm font-semibold text-stone-700">
                   {t('billing.usage')} (kWh)
                 </th>
-                <th className="text-right py-3 px-4 text-sm font-semibold text-gray-700">
+                <th className="text-right py-3 px-4 text-sm font-semibold text-stone-700">
                   {t('billing.rate')}
                 </th>
-                <th className="text-right py-3 px-4 text-sm font-semibold text-gray-700">
+                <th className="text-right py-3 px-4 text-sm font-semibold text-stone-700">
                   {t('billing.amount')}
                 </th>
-                <th className="text-center py-3 px-4 text-sm font-semibold text-gray-700">
+                <th className="text-center py-3 px-4 text-sm font-semibold text-stone-700">
                   {t('billing.status')}
                 </th>
-                <th className="text-center py-3 px-4 text-sm font-semibold text-gray-700">
+                <th className="text-center py-3 px-4 text-sm font-semibold text-stone-700">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody>
               {billingHistory.map((bill) => (
-                <tr key={bill.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                <tr key={bill.id} className="border-b border-stone-100 hover:bg-stone-50 transition-colors">
                   <td className="py-4 px-4">
                     <p className="font-semibold text-brown-900">{bill.id}</p>
-                    <p className="text-sm text-gray-500">{bill.period}</p>
+                    <p className="text-sm text-stone-500">{bill.period}</p>
                   </td>
-                  <td className="py-4 px-4 text-gray-700">
+                  <td className="py-4 px-4 text-stone-700">
                     {bill.dueDate.toLocaleDateString('id-ID')}
                   </td>
-                  <td className="py-4 px-4 text-right text-gray-700">
+                  <td className="py-4 px-4 text-right text-stone-700">
                     {bill.usage.toLocaleString()}
                   </td>
-                  <td className="py-4 px-4 text-right text-gray-700">
+                  <td className="py-4 px-4 text-right text-stone-700">
                     Rp {bill.rate.toLocaleString()}
                   </td>
                   <td className="py-4 px-4 text-right font-semibold text-brown-900">
@@ -172,7 +172,7 @@ const BillingPage = () => {
                   </td>
                   <td className="py-4 px-4 text-center">
                     {bill.status === 'paid' ? (
-                      <span className="inline-flex items-center space-x-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+                      <span className="inline-flex items-center space-x-1 px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm font-medium">
                         <CheckCircle className="w-4 h-4" />
                         <span>{t('billing.paid')}</span>
                       </span>
@@ -200,7 +200,7 @@ const BillingPage = () => {
       </div>
 
       {/* Payment Methods */}
-      <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+      <div className="bg-white rounded-xl shadow-md p-6 border border-stone-100">
         <h2 className="text-xl font-bold text-brown-900 mb-6">Payment Methods</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="p-4 border-2 border-brown-700 rounded-lg bg-brown-50">
@@ -208,20 +208,20 @@ const BillingPage = () => {
               <CreditCard className="w-8 h-8 text-brown-700" />
               <span className="text-xs font-medium px-2 py-1 bg-brown-700 text-white rounded">Primary</span>
             </div>
-            <p className="text-sm text-gray-600 mb-1">Bank Transfer</p>
+            <p className="text-sm text-stone-600 mb-1">Bank Transfer</p>
             <p className="font-semibold text-brown-900">BCA •••• 4892</p>
           </div>
 
-          <div className="p-4 border border-gray-200 rounded-lg hover:border-brown-300 transition-colors cursor-pointer">
-            <CreditCard className="w-8 h-8 text-gray-400 mb-3" />
-            <p className="text-sm text-gray-600 mb-1">Virtual Account</p>
-            <p className="font-semibold text-gray-900">Not configured</p>
+          <div className="p-4 border border-stone-200 rounded-lg hover:border-brown-300 transition-colors cursor-pointer">
+            <CreditCard className="w-8 h-8 text-stone-400 mb-3" />
+            <p className="text-sm text-stone-600 mb-1">Virtual Account</p>
+            <p className="font-semibold text-stone-900">Not configured</p>
           </div>
 
-          <div className="p-4 border border-gray-200 rounded-lg hover:border-brown-300 transition-colors cursor-pointer">
-            <CreditCard className="w-8 h-8 text-gray-400 mb-3" />
-            <p className="text-sm text-gray-600 mb-1">Credit Card</p>
-            <p className="font-semibold text-gray-900">Add new</p>
+          <div className="p-4 border border-stone-200 rounded-lg hover:border-brown-300 transition-colors cursor-pointer">
+            <CreditCard className="w-8 h-8 text-stone-400 mb-3" />
+            <p className="text-sm text-stone-600 mb-1">Credit Card</p>
+            <p className="font-semibold text-stone-900">Add new</p>
           </div>
         </div>
       </div>

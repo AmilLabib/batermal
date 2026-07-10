@@ -18,7 +18,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-stone-50">
       <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
       <Header onMenuClick={toggleSidebar} />
       <main className="lg:ml-64 mt-14 sm:mt-16 p-4 sm:p-6 lg:p-8">

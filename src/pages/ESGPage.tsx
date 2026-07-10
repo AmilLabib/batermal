@@ -19,7 +19,7 @@ const ESGPage = () => {
           <h1 className="text-2xl sm:text-3xl font-display font-bold text-brown-900">
             {t('esg.title')}
           </h1>
-          <p className="text-sm sm:text-base text-gray-600 mt-1">Environmental impact and sustainability metrics</p>
+          <p className="text-sm sm:text-base text-stone-600 mt-1">Environmental impact and sustainability metrics</p>
         </div>
         <div className="flex flex-wrap gap-2 sm:gap-3">
           <button
@@ -41,7 +41,7 @@ const ESGPage = () => {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-        <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl shadow-lg p-4 sm:p-6 text-white">
+        <div className="bg-gradient-to-br from-amber-500 to-emerald-600 rounded-xl shadow-lg p-4 sm:p-6 text-white">
           <div className="flex items-center justify-between mb-3 sm:mb-4">
             <Leaf className="w-8 h-8 sm:w-10 sm:h-10" />
             <span className="text-xs font-medium px-2 sm:px-3 py-1 bg-white/20 rounded-full">
@@ -53,7 +53,7 @@ const ESGPage = () => {
           <p className="text-xs sm:text-sm opacity-90">tons CO₂</p>
         </div>
 
-        <div className="bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl shadow-lg p-6 text-white">
+        <div className="bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl shadow-lg p-6 text-white">
           <div className="flex items-center justify-between mb-4">
             <Trees className="w-10 h-10" />
             <span className="text-xs font-medium px-3 py-1 bg-white/20 rounded-full">
@@ -77,7 +77,7 @@ const ESGPage = () => {
           <p className="text-sm opacity-90">tons</p>
         </div>
 
-        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-lg p-6 text-white">
+        <div className="bg-gradient-to-br from-brown-500 to-brown-600 rounded-xl shadow-lg p-6 text-white">
           <div className="flex items-center justify-between mb-4">
             <Droplets className="w-10 h-10" />
             <span className="text-xs font-medium px-3 py-1 bg-white/20 rounded-full">
@@ -91,7 +91,7 @@ const ESGPage = () => {
       </div>
 
       {/* CO2 Reduction Trend */}
-      <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+      <div className="bg-white rounded-xl shadow-md p-6 border border-stone-100">
         <h3 className="text-lg font-bold text-brown-900 mb-6">
           {t('esg.trends')} (2026)
         </h3>
@@ -119,17 +119,17 @@ const ESGPage = () => {
           </LineChart>
         </ResponsiveContainer>
         <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-            <p className="text-sm text-green-800 font-medium mb-1">Monthly Average</p>
-            <p className="text-2xl font-bold text-green-900">24.3 tons</p>
+          <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <p className="text-sm text-amber-800 font-medium mb-1">Monthly Average</p>
+            <p className="text-2xl font-bold text-amber-900">24.3 tons</p>
           </div>
-          <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <p className="text-sm text-blue-800 font-medium mb-1">YTD Total</p>
-            <p className="text-2xl font-bold text-blue-900">145.8 tons</p>
+          <div className="p-4 bg-brown-50 rounded-lg border border-brown-200">
+            <p className="text-sm text-brown-800 font-medium mb-1">YTD Total</p>
+            <p className="text-2xl font-bold text-brown-900">145.8 tons</p>
           </div>
-          <div className="p-4 bg-teal-50 rounded-lg border border-teal-200">
-            <p className="text-sm text-teal-800 font-medium mb-1">Growth Rate</p>
-            <p className="text-2xl font-bold text-teal-900">↑ 18.5%</p>
+          <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
+            <p className="text-sm text-orange-800 font-medium mb-1">Growth Rate</p>
+            <p className="text-2xl font-bold text-orange-900">↑ 18.5%</p>
           </div>
         </div>
       </div>
@@ -137,7 +137,7 @@ const ESGPage = () => {
       {/* Detailed Breakdown */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Environmental Impact */}
-        <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-stone-100">
           <h3 className="text-lg font-bold text-brown-900 mb-6">Environmental Impact Breakdown</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart
@@ -163,18 +163,18 @@ const ESGPage = () => {
         </div>
 
         {/* Comparison with Traditional */}
-        <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-stone-100">
           <h3 className="text-lg font-bold text-brown-900 mb-6">vs Traditional Fuel System</h3>
           <div className="space-y-6">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-600">CO₂ Emissions</span>
-                <span className="text-sm font-bold text-green-600">↓ 85.2%</span>
+                <span className="text-sm text-stone-600">CO₂ Emissions</span>
+                <span className="text-sm font-bold text-amber-600">↓ 85.2%</span>
               </div>
-              <div className="relative h-8 bg-gray-200 rounded-full overflow-hidden">
+              <div className="relative h-8 bg-stone-200 rounded-full overflow-hidden">
                 <div className="absolute inset-0 flex">
                   <div className="bg-red-500 h-full" style={{ width: '85.2%' }}></div>
-                  <div className="bg-green-500 h-full" style={{ width: '14.8%' }}></div>
+                  <div className="bg-amber-500 h-full" style={{ width: '14.8%' }}></div>
                 </div>
                 <div className="absolute inset-0 flex items-center justify-between px-4">
                   <span className="text-xs font-bold text-white">Traditional: 985 tons</span>
@@ -185,13 +185,13 @@ const ESGPage = () => {
 
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-600">Fossil Fuel Consumption</span>
-                <span className="text-sm font-bold text-green-600">↓ 76.4%</span>
+                <span className="text-sm text-stone-600">Fossil Fuel Consumption</span>
+                <span className="text-sm font-bold text-amber-600">↓ 76.4%</span>
               </div>
-              <div className="relative h-8 bg-gray-200 rounded-full overflow-hidden">
+              <div className="relative h-8 bg-stone-200 rounded-full overflow-hidden">
                 <div className="absolute inset-0 flex">
                   <div className="bg-orange-500 h-full" style={{ width: '76.4%' }}></div>
-                  <div className="bg-green-500 h-full" style={{ width: '23.6%' }}></div>
+                  <div className="bg-amber-500 h-full" style={{ width: '23.6%' }}></div>
                 </div>
                 <div className="absolute inset-0 flex items-center justify-between px-4">
                   <span className="text-xs font-bold text-white">Traditional: 289 tons</span>
@@ -202,13 +202,13 @@ const ESGPage = () => {
 
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-600">Water Usage</span>
-                <span className="text-sm font-bold text-green-600">↓ 52.8%</span>
+                <span className="text-sm text-stone-600">Water Usage</span>
+                <span className="text-sm font-bold text-amber-600">↓ 52.8%</span>
               </div>
-              <div className="relative h-8 bg-gray-200 rounded-full overflow-hidden">
+              <div className="relative h-8 bg-stone-200 rounded-full overflow-hidden">
                 <div className="absolute inset-0 flex">
-                  <div className="bg-blue-500 h-full" style={{ width: '52.8%' }}></div>
-                  <div className="bg-green-500 h-full" style={{ width: '47.2%' }}></div>
+                  <div className="bg-brown-500 h-full" style={{ width: '52.8%' }}></div>
+                  <div className="bg-amber-500 h-full" style={{ width: '47.2%' }}></div>
                 </div>
                 <div className="absolute inset-0 flex items-center justify-between px-4">
                   <span className="text-xs font-bold text-white">Traditional: 1,890 m³</span>
@@ -217,14 +217,14 @@ const ESGPage = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-teal-50 rounded-lg border border-green-200">
-              <p className="text-sm text-green-800 font-medium mb-2">
+            <div className="mt-6 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+              <p className="text-sm text-amber-800 font-medium mb-2">
                 🎯 Net Zero Progress
               </p>
-              <div className="w-full bg-green-200 rounded-full h-4 mb-2">
-                <div className="bg-green-600 h-4 rounded-full" style={{ width: '73%' }}></div>
+              <div className="w-full bg-amber-200 rounded-full h-4 mb-2">
+                <div className="bg-amber-600 h-4 rounded-full" style={{ width: '73%' }}></div>
               </div>
-              <p className="text-xs text-green-700">
+              <p className="text-xs text-amber-700">
                 73% towards Net Zero target by 2060
               </p>
             </div>
@@ -233,28 +233,28 @@ const ESGPage = () => {
       </div>
 
       {/* SDG Alignment */}
-      <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+      <div className="bg-white rounded-xl shadow-md p-6 border border-stone-100">
         <h3 className="text-lg font-bold text-brown-900 mb-6">UN Sustainable Development Goals Alignment</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="p-4 bg-gradient-to-br from-yellow-50 to-amber-50 rounded-lg border border-yellow-200 text-center">
             <div className="text-3xl mb-2">⚡</div>
             <p className="text-sm font-semibold text-brown-900">SDG 7</p>
-            <p className="text-xs text-gray-600">Affordable & Clean Energy</p>
+            <p className="text-xs text-stone-600">Affordable & Clean Energy</p>
           </div>
-          <div className="p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-200 text-center">
+          <div className="p-4 bg-gradient-to-br from-amber-50 to-emerald-50 rounded-lg border border-amber-200 text-center">
             <div className="text-3xl mb-2">🏭</div>
             <p className="text-sm font-semibold text-brown-900">SDG 9</p>
-            <p className="text-xs text-gray-600">Industry Innovation</p>
+            <p className="text-xs text-stone-600">Industry Innovation</p>
           </div>
           <div className="p-4 bg-gradient-to-br from-orange-50 to-red-50 rounded-lg border border-orange-200 text-center">
             <div className="text-3xl mb-2">♻️</div>
             <p className="text-sm font-semibold text-brown-900">SDG 12</p>
-            <p className="text-xs text-gray-600">Responsible Consumption</p>
+            <p className="text-xs text-stone-600">Responsible Consumption</p>
           </div>
-          <div className="p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg border border-blue-200 text-center">
+          <div className="p-4 bg-gradient-to-br from-brown-50 to-amber-50 rounded-lg border border-brown-200 text-center">
             <div className="text-3xl mb-2">🌍</div>
             <p className="text-sm font-semibold text-brown-900">SDG 13</p>
-            <p className="text-xs text-gray-600">Climate Action</p>
+            <p className="text-xs text-stone-600">Climate Action</p>
           </div>
         </div>
       </div>

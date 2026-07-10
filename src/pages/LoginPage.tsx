@@ -47,40 +47,40 @@ const LoginPage = () => {
               <span className="text-3xl font-bold text-white">B</span>
             </div>
             <h1 className="text-3xl font-display font-bold text-brown-900">BATERMAL</h1>
-            <p className="text-gray-600 mt-2">Smart Thermal Battery System</p>
+            <p className="text-stone-600 mt-2">Smart Thermal Battery System</p>
           </div>
 
           {/* Login Form */}
           <form onSubmit={handleLogin} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-stone-700 mb-2">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-400" />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your.email@company.com"
-                  className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brown-600 focus:border-transparent transition-all"
+                  className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brown-600 focus:border-transparent transition-all"
                   required
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-stone-700 mb-2">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-400" />
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brown-600 focus:border-transparent transition-all"
+                  className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brown-600 focus:border-transparent transition-all"
                   required
                 />
               </div>
@@ -90,9 +90,9 @@ const LoginPage = () => {
               <label className="flex items-center">
                 <input
                   type="checkbox"
-                  className="w-4 h-4 text-brown-600 border-gray-300 rounded focus:ring-brown-600"
+                  className="w-4 h-4 text-brown-600 border-stone-300 rounded focus:ring-brown-600"
                 />
-                <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                <span className="ml-2 text-sm text-stone-600">Remember me</span>
               </label>
               <a href="#" className="text-sm text-brown-600 hover:text-brown-700 font-medium">
                 Forgot password?
@@ -110,8 +110,8 @@ const LoginPage = () => {
           {/* Demo Credentials */}
           <div className="mt-6 p-4 bg-brown-50 rounded-lg border border-brown-200">
             <p className="text-xs text-brown-700 font-medium mb-2">Demo Credentials:</p>
-            <p className="text-xs text-gray-600">Email: demo@industry.com</p>
-            <p className="text-xs text-gray-600">Password: demo123</p>
+            <p className="text-xs text-stone-600">Email: demo@industry.com</p>
+            <p className="text-xs text-stone-600">Password: demo123</p>
           </div>
 
           {/* Back to Landing */}

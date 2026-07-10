@@ -43,7 +43,7 @@ const AnalyticsPage = () => {
           <h1 className="text-2xl sm:text-3xl font-display font-bold text-brown-900">
             {t('analytics.title')}
           </h1>
-          <p className="text-sm sm:text-base text-gray-600 mt-1">Comprehensive energy consumption and cost analysis</p>
+          <p className="text-sm sm:text-base text-stone-600 mt-1">Comprehensive energy consumption and cost analysis</p>
         </div>
         <div className="flex flex-wrap gap-2">
           {(['daily', 'weekly', 'monthly', 'yearly'] as const).map((p) => (
@@ -53,7 +53,7 @@ const AnalyticsPage = () => {
               className={`px-3 sm:px-4 py-2 rounded-lg font-medium text-sm transition-all ${
                 period === p
                   ? 'bg-brown-700 text-white shadow-lg'
-                  : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                  : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
               }`}
             >
               {t(`analytics.${p}`)}
@@ -64,7 +64,7 @@ const AnalyticsPage = () => {
 
       {/* Cost Savings Summary */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl shadow-lg p-4 sm:p-6 text-white">
+        <div className="bg-gradient-to-br from-amber-500 to-emerald-600 rounded-xl shadow-lg p-4 sm:p-6 text-white">
           <div className="flex items-center justify-between mb-3 sm:mb-4">
             <TrendingDown className="w-6 h-6 sm:w-8 sm:h-8" />
             <span className="text-xs font-medium px-2 sm:px-3 py-1 bg-white/20 rounded-full">
@@ -78,7 +78,7 @@ const AnalyticsPage = () => {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl shadow-lg p-4 sm:p-6 text-white">
+        <div className="bg-gradient-to-br from-brown-500 to-amber-600 rounded-xl shadow-lg p-4 sm:p-6 text-white">
           <div className="flex items-center justify-between mb-3 sm:mb-4">
             <Zap className="w-6 h-6 sm:w-8 sm:h-8" />
             <span className="text-xs font-medium px-2 sm:px-3 py-1 bg-white/20 rounded-full">
@@ -104,7 +104,7 @@ const AnalyticsPage = () => {
       </div>
 
       {/* Energy Consumption Chart */}
-      <div className="bg-white rounded-xl shadow-md p-4 md:p-6 border border-gray-100">
+      <div className="bg-white rounded-xl shadow-md p-4 md:p-6 border border-stone-100">
         <h3 className="text-base md:text-lg font-bold text-brown-900 mb-3 md:mb-4">
           {t('analytics.consumption')} - Last 30 Days
         </h3>
@@ -145,7 +145,7 @@ const AnalyticsPage = () => {
       {/* Cost Comparison & Efficiency */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         {/* Cost Comparison */}
-        <div className="bg-white rounded-xl shadow-md p-4 md:p-6 border border-gray-100">
+        <div className="bg-white rounded-xl shadow-md p-4 md:p-6 border border-stone-100">
           <h3 className="text-base md:text-lg font-bold text-brown-900 mb-3 md:mb-4">
             {t('analytics.comparison')}
           </h3>
@@ -167,15 +167,15 @@ const AnalyticsPage = () => {
               <Bar dataKey="batermal" fill="#52b788" name="BATERMAL" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
-          <div className="mt-4 p-3 md:p-4 bg-green-50 rounded-lg border border-green-200">
-            <p className="text-xs sm:text-sm text-green-800">
+          <div className="mt-4 p-3 md:p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <p className="text-xs sm:text-sm text-amber-800">
               <span className="font-bold">Total Monthly Savings:</span> Rp {(costComparison.savings / 1000000).toFixed(1)}M ({costComparison.savingsPercentage.toFixed(1)}% reduction)
             </p>
           </div>
         </div>
 
         {/* Efficiency Trends */}
-        <div className="bg-white rounded-xl shadow-md p-4 md:p-6 border border-gray-100">
+        <div className="bg-white rounded-xl shadow-md p-4 md:p-6 border border-stone-100">
           <h3 className="text-base md:text-lg font-bold text-brown-900 mb-3 md:mb-4">
             {t('analytics.efficiency')}
           </h3>
@@ -202,8 +202,8 @@ const AnalyticsPage = () => {
               />
             </LineChart>
           </ResponsiveContainer>
-          <div className="mt-4 p-3 md:p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <p className="text-xs sm:text-sm text-blue-800">
+          <div className="mt-4 p-3 md:p-4 bg-brown-50 rounded-lg border border-brown-200">
+            <p className="text-xs sm:text-sm text-brown-800">
               <span className="font-bold">Average Efficiency:</span> 91.2% (↑ 2.3% from last period)
             </p>
           </div>
@@ -211,7 +211,7 @@ const AnalyticsPage = () => {
       </div>
 
       {/* Peak Usage Hours */}
-      <div className="bg-white rounded-xl shadow-md p-4 md:p-6 border border-gray-100">
+      <div className="bg-white rounded-xl shadow-md p-4 md:p-6 border border-stone-100">
         <div className="flex items-center space-x-3 mb-3 md:mb-4">
           <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-brown-700" />
           <h3 className="text-base md:text-lg font-bold text-brown-900">
@@ -238,15 +238,15 @@ const AnalyticsPage = () => {
 
           <div className="space-y-3 md:space-y-4">
             {peakHoursData.map((item, index) => (
-              <div key={index} className="flex items-center justify-between p-3 md:p-4 bg-gray-50 rounded-lg">
+              <div key={index} className="flex items-center justify-between p-3 md:p-4 bg-stone-50 rounded-lg">
                 <div>
                   <p className="text-sm sm:text-base font-semibold text-brown-900">{item.hour}</p>
-                  <p className="text-xs sm:text-sm text-gray-600">{item.usage} kWh average</p>
+                  <p className="text-xs sm:text-sm text-stone-600">{item.usage} kWh average</p>
                 </div>
                 <span className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${
                   item.cost === 'High' ? 'bg-red-100 text-red-800' :
                   item.cost === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
-                  'bg-green-100 text-green-800'
+                  'bg-amber-100 text-amber-800'
                 }`}>
                   {item.cost} Tariff
                 </span>

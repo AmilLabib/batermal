@@ -10,7 +10,7 @@ const LandingPage = () => {
       icon: Recycle,
       title: t('landing.features.circular.title'),
       desc: t('landing.features.circular.desc'),
-      color: 'from-green-500 to-emerald-600'
+      color: 'from-amber-500 to-emerald-600'
     },
     {
       icon: Zap,
@@ -22,13 +22,13 @@ const LandingPage = () => {
       icon: Brain,
       title: t('landing.features.iot.title'),
       desc: t('landing.features.iot.desc'),
-      color: 'from-blue-500 to-indigo-600'
+      color: 'from-brown-500 to-brown-600'
     },
     {
       icon: Leaf,
       title: t('landing.features.esg.title'),
       desc: t('landing.features.esg.desc'),
-      color: 'from-teal-500 to-cyan-600'
+      color: 'from-orange-500 to-amber-600'
     }
   ];
 
@@ -78,7 +78,7 @@ const LandingPage = () => {
             {t('landing.hero.title')}
           </h1>
 
-          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-stone-600 mb-12 max-w-3xl mx-auto leading-relaxed">
             {t('landing.hero.subtitle')}
           </p>
 
@@ -99,19 +99,19 @@ const LandingPage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
             <div className="bg-white p-6 rounded-xl shadow-md">
               <p className="text-3xl font-bold text-brown-700">145+</p>
-              <p className="text-sm text-gray-600 mt-1">Tons CO₂ Reduced</p>
+              <p className="text-sm text-stone-600 mt-1">Tons CO₂ Reduced</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <p className="text-3xl font-bold text-brown-700">50+</p>
-              <p className="text-sm text-gray-600 mt-1">Industry Partners</p>
+              <p className="text-sm text-stone-600 mt-1">Industry Partners</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <p className="text-3xl font-bold text-brown-700">92%</p>
-              <p className="text-sm text-gray-600 mt-1">Efficiency Rate</p>
+              <p className="text-sm text-stone-600 mt-1">Efficiency Rate</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <p className="text-3xl font-bold text-brown-700">24/7</p>
-              <p className="text-sm text-gray-600 mt-1">Monitoring</p>
+              <p className="text-sm text-stone-600 mt-1">Monitoring</p>
             </div>
           </div>
         </div>
@@ -141,7 +141,7 @@ const LandingPage = () => {
                   <h3 className="text-2xl font-bold text-brown-900 mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-stone-600 leading-relaxed">
                     {feature.desc}
                   </p>
                 </div>
