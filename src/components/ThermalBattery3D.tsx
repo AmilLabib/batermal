@@ -1,6 +1,6 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Box, Cylinder, Sphere, RoundedBox } from '@react-three/drei';
+import { OrbitControls, Box, Cylinder, Sphere, RoundedBox, Html, useCursor } from '@react-three/drei';
 import * as THREE from 'three';
 
 // ─── Wind Turbine ─────────────────────────────────────────────────────────────
@@ -30,12 +30,31 @@ const TurbineBlade = ({ angle }: { angle: number }) => {
 
 const WindTurbine = ({ position }: { position: [number, number, number] }) => {
   const hubRef = useRef<THREE.Group>(null);
+  const [hovered, setHovered] = useState(false);
+  useCursor(hovered);
+  
   useFrame((_, delta) => {
     if (hubRef.current) hubRef.current.rotation.z -= delta * 1.5;
   });
 
   return (
-    <group position={position}>
+    <group 
+      position={position}
+      onPointerOver={(e) => { e.stopPropagation(); setHovered(true); }}
+      onPointerOut={(e) => { e.stopPropagation(); setHovered(false); }}
+    >
+      {hovered && (
+        <Html position={[0, 2.8, 0]} center zIndexRange={[100, 0]}>
+          <div className="bg-white/95 backdrop-blur-sm border border-brown-200 p-3 rounded-lg shadow-xl w-48 pointer-events-none">
+            <h4 className="text-sm font-bold text-brown-900 mb-1 border-b border-brown-100 pb-1">Wind Turbine</h4>
+            <ul className="text-xs text-stone-600 space-y-1">
+              <li><span className="font-medium text-stone-500">Capacity:</span> 2.5 MW</li>
+              <li><span className="font-medium text-stone-500">Rotor Ø:</span> 90 m</li>
+              <li><span className="font-medium text-stone-500">Efficiency:</span> 45%</li>
+            </ul>
+          </div>
+        </Html>
+      )}
       {/* Foundation */}
       <Cylinder args={[0.12, 0.18, 0.15, 8]} position={[0, -2.02, 0]}>
         <meshStandardMaterial color="#94a3b8" roughness={0.8} />
@@ -66,8 +85,27 @@ const WindTurbine = ({ position }: { position: [number, number, number] }) => {
 
 // ─── Solar Panel ──────────────────────────────────────────────────────────────
 const SolarPanel = ({ position }: { position: [number, number, number] }) => {
+  const [hovered, setHovered] = useState(false);
+  useCursor(hovered);
+
   return (
-    <group position={position}>
+    <group 
+      position={position}
+      onPointerOver={(e) => { e.stopPropagation(); setHovered(true); }}
+      onPointerOut={(e) => { e.stopPropagation(); setHovered(false); }}
+    >
+      {hovered && (
+        <Html position={[0, 0.5, 0]} center zIndexRange={[100, 0]}>
+          <div className="bg-white/95 backdrop-blur-sm border border-brown-200 p-3 rounded-lg shadow-xl w-48 pointer-events-none">
+            <h4 className="text-sm font-bold text-brown-900 mb-1 border-b border-brown-100 pb-1">Solar Panel Array</h4>
+            <ul className="text-xs text-stone-600 space-y-1">
+              <li><span className="font-medium text-stone-500">Output:</span> 400 Wp / panel</li>
+              <li><span className="font-medium text-stone-500">Efficiency:</span> 21%</li>
+              <li><span className="font-medium text-stone-500">Area:</span> 2 m²</li>
+            </ul>
+          </div>
+        </Html>
+      )}
       {/* Ground legs */}
       <Cylinder args={[0.03, 0.03, 0.6, 6]} position={[-0.4, -1.7, 0.1]} rotation={[0.3, 0, 0]}>
         <meshStandardMaterial color="#64748b" />
@@ -98,6 +136,9 @@ const SolarPanel = ({ position }: { position: [number, number, number] }) => {
 
 // ─── Battery Core (Brick Matrix) ─────────────────────────────────────────────
 const BatteryCore = ({ position }: { position: [number, number, number] }) => {
+  const [hovered, setHovered] = useState(false);
+  useCursor(hovered);
+
   const cols = 5;
   const rows = 3;
   const depth = 3; // layers front-to-back
@@ -178,7 +219,23 @@ const BatteryCore = ({ position }: { position: [number, number, number] }) => {
   }
 
   return (
-    <group position={position}>
+    <group 
+      position={position}
+      onPointerOver={(e) => { e.stopPropagation(); setHovered(true); }}
+      onPointerOut={(e) => { e.stopPropagation(); setHovered(false); }}
+    >
+      {hovered && (
+        <Html position={[0, 2.5, 0]} center zIndexRange={[100, 0]}>
+          <div className="bg-white/95 backdrop-blur-sm border border-brown-200 p-3 rounded-lg shadow-xl w-48 pointer-events-none">
+            <h4 className="text-sm font-bold text-brown-900 mb-1 border-b border-brown-100 pb-1">Thermal Battery Core</h4>
+            <ul className="text-xs text-stone-600 space-y-1">
+              <li><span className="font-medium text-stone-500">Material:</span> Firebrick</li>
+              <li><span className="font-medium text-stone-500">Max Temp:</span> 1600°C</li>
+              <li><span className="font-medium text-stone-500">Heat Cap:</span> 1.2 kJ/kgK</li>
+            </ul>
+          </div>
+        </Html>
+      )}
       {blocks}
       {pipes}
     </group>
@@ -187,6 +244,9 @@ const BatteryCore = ({ position }: { position: [number, number, number] }) => {
 
 // ─── Heat Exchanger ──────────────────────────────────────────────────────────
 const HeatExchanger = ({ position }: { position: [number, number, number] }) => {
+  const [hovered, setHovered] = useState(false);
+  useCursor(hovered);
+
   // S-curve snake pipes
   const pipeData = [
     { y: 1.2, color: '#9a3412' }, // orange-800
@@ -196,7 +256,23 @@ const HeatExchanger = ({ position }: { position: [number, number, number] }) => 
   ];
 
   return (
-    <group position={position}>
+    <group 
+      position={position}
+      onPointerOver={(e) => { e.stopPropagation(); setHovered(true); }}
+      onPointerOut={(e) => { e.stopPropagation(); setHovered(false); }}
+    >
+      {hovered && (
+        <Html position={[0, 2.5, 0]} center zIndexRange={[100, 0]}>
+          <div className="bg-white/95 backdrop-blur-sm border border-brown-200 p-3 rounded-lg shadow-xl w-48 pointer-events-none">
+            <h4 className="text-sm font-bold text-brown-900 mb-1 border-b border-brown-100 pb-1">Heat Exchanger</h4>
+            <ul className="text-xs text-stone-600 space-y-1">
+              <li><span className="font-medium text-stone-500">Flow Rate:</span> 15 L/s</li>
+              <li><span className="font-medium text-stone-500">Pressure:</span> 10 bar</li>
+              <li><span className="font-medium text-stone-500">Transfer:</span> 95%</li>
+            </ul>
+          </div>
+        </Html>
+      )}
       {/* Side plates (semi-transparent) */}
       <Box args={[0.15, 3.8, 2.2]} position={[-1.6, 0, 0]}>
         <meshStandardMaterial color="#e2e8f0" transparent opacity={0.5} />

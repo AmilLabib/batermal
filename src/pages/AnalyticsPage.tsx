@@ -1,12 +1,24 @@
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
-import { TrendingDown, DollarSign, Zap, Clock } from 'lucide-react';
+import { TrendingDown, DollarSign, Zap, Clock, Calculator, Percent } from 'lucide-react';
 import { generateEnergyHistory, getCostComparison } from '../utils/mockData';
 
 const AnalyticsPage = () => {
   const { t } = useTranslation();
   const [period, setPeriod] = useState<'daily' | 'weekly' | 'monthly' | 'yearly'>('monthly');
+  
+  // ROI Calculator States
+  const [roiCapacity, setRoiCapacity] = useState(10); // MWh
+  const [roiDailySavings, setRoiDailySavings] = useState(5000); // kWh
+  const [roiRate, setRoiRate] = useState(1500); // Rp/kWh
+
+  const COST_PER_MWH = 2500000000; // 2.5 Billion Rp
+  const totalInvestment = roiCapacity * COST_PER_MWH;
+  const monthlySavings = roiDailySavings * 30 * roiRate;
+  const paybackMonths = totalInvestment / (monthlySavings || 1);
+  const paybackYears = Math.floor(paybackMonths / 12);
+  const paybackRemainingMonths = Math.ceil(paybackMonths % 12);
   
   const energyData = generateEnergyHistory(30);
   const costComparison = getCostComparison();
@@ -258,6 +270,102 @@ const AnalyticsPage = () => {
           <p className="text-xs sm:text-sm text-orange-800">
             <span className="font-bold">Recommendation:</span> Schedule charging during low-tariff hours (00:00-06:00) to maximize cost savings by up to 30%
           </p>
+        </div>
+      </div>
+
+      {/* ROI Predictive Calculator */}
+      <div className="bg-white rounded-xl shadow-md p-4 md:p-6 border border-stone-100">
+        <div className="flex items-center space-x-3 mb-4 md:mb-6">
+          <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-brown-700" />
+          <div>
+            <h3 className="text-base md:text-lg font-bold text-brown-900">Predictive ROI Calculator</h3>
+            <p className="text-xs sm:text-sm text-stone-500">Estimate your investment return based on energy savings</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          {/* Controls */}
+          <div className="space-y-6">
+            <div>
+              <div className="flex justify-between mb-2">
+                <label className="text-sm font-medium text-stone-700">Installation Capacity</label>
+                <span className="text-sm font-bold text-brown-700">{roiCapacity} MWh</span>
+              </div>
+              <input 
+                type="range" 
+                min="1" max="100" 
+                value={roiCapacity} 
+                onChange={(e) => setRoiCapacity(Number(e.target.value))}
+                className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-brown-600"
+              />
+            </div>
+            
+            <div>
+              <div className="flex justify-between mb-2">
+                <label className="text-sm font-medium text-stone-700">Expected Daily Savings</label>
+                <span className="text-sm font-bold text-brown-700">{roiDailySavings.toLocaleString('id-ID')} kWh</span>
+              </div>
+              <input 
+                type="range" 
+                min="1000" max="50000" step="500"
+                value={roiDailySavings} 
+                onChange={(e) => setRoiDailySavings(Number(e.target.value))}
+                className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-amber-500"
+              />
+            </div>
+
+            <div>
+              <div className="flex justify-between mb-2">
+                <label className="text-sm font-medium text-stone-700">Electricity Rate</label>
+                <span className="text-sm font-bold text-brown-700">Rp {roiRate.toLocaleString('id-ID')} / kWh</span>
+              </div>
+              <input 
+                type="range" 
+                min="500" max="3000" step="100"
+                value={roiRate} 
+                onChange={(e) => setRoiRate(Number(e.target.value))}
+                className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-orange-500"
+              />
+            </div>
+          </div>
+
+          {/* Results Summary */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-stone-50 rounded-xl p-4 border border-stone-200">
+              <div className="flex items-center space-x-2 mb-2 text-stone-500">
+                <DollarSign className="w-4 h-4" />
+                <span className="text-sm font-medium">Estimated Investment</span>
+              </div>
+              <p className="text-xl sm:text-2xl font-bold text-brown-900">
+                Rp {(totalInvestment / 1000000000).toFixed(1)}B
+              </p>
+            </div>
+            
+            <div className="bg-stone-50 rounded-xl p-4 border border-stone-200">
+              <div className="flex items-center space-x-2 mb-2 text-stone-500">
+                <TrendingDown className="w-4 h-4" />
+                <span className="text-sm font-medium">Monthly Savings</span>
+              </div>
+              <p className="text-xl sm:text-2xl font-bold text-amber-600">
+                Rp {(monthlySavings / 1000000).toFixed(1)}M
+              </p>
+            </div>
+
+            <div className="sm:col-span-2 bg-gradient-to-br from-brown-800 to-brown-600 rounded-xl p-6 text-white shadow-lg">
+              <div className="flex items-center space-x-2 mb-2 opacity-90">
+                <Percent className="w-5 h-5" />
+                <span className="text-sm font-medium">Estimated Payback Period</span>
+              </div>
+              <div className="flex items-end space-x-2">
+                <p className="text-3xl sm:text-5xl font-bold">
+                  {paybackYears} <span className="text-xl sm:text-2xl font-normal opacity-80">yrs</span> {paybackRemainingMonths} <span className="text-xl sm:text-2xl font-normal opacity-80">mos</span>
+                </p>
+              </div>
+              <p className="text-xs sm:text-sm mt-3 opacity-80">
+                Based on continuous operation and current tariff assumptions.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
