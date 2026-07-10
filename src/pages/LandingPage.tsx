@@ -37,13 +37,8 @@ const LandingPage = () => {
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-brown-200 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-brown-600 to-brown-800 rounded-lg flex items-center justify-center">
-              <span className="text-xl font-bold text-white">B</span>
-            </div>
-            <div>
-              <h1 className="text-2xl font-display font-bold text-brown-900">BATERMAL</h1>
-            </div>
+          <div className="flex items-center">
+            <img src="/logo.png" alt="BATERMAL Logo" className="h-10" />
           </div>
 
           <div className="flex items-center space-x-4">
@@ -169,11 +164,8 @@ const LandingPage = () => {
       {/* Footer */}
       <footer className="py-12 px-6 bg-brown-950 text-brown-300">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-brown-600 to-brown-800 rounded-lg flex items-center justify-center">
-              <span className="text-xl font-bold text-white">B</span>
-            </div>
-            <h3 className="text-2xl font-display font-bold text-white">BATERMAL</h3>
+          <div className="flex flex-col items-center justify-center mb-8">
+            <img src="/logo.png" alt="BATERMAL Logo" className="h-8 mb-4 brightness-0 invert opacity-90" />
           </div>
           <p className="text-sm">© 2026 BATERMAL. Smart Thermal Battery for Industrial Decarbonization.</p>
         </div>

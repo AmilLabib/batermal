@@ -43,10 +43,7 @@ const LoginPage = () => {
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           {/* Logo */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-brown-600 to-brown-800 rounded-2xl mb-4">
-              <span className="text-3xl font-bold text-white">B</span>
-            </div>
-            <h1 className="text-3xl font-display font-bold text-brown-900">BATERMAL</h1>
+            <img src="/logo.png" alt="BATERMAL Logo" className="h-16 mx-auto mb-4" />
             <p className="text-stone-600 mt-2">Smart Thermal Battery System</p>
           </div>
 

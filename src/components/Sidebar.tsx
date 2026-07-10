@@ -54,11 +54,8 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         {/* Logo */}
         <div className="p-4 sm:p-6 border-b border-brown-800 flex items-center justify-between">
           <Link to="/dashboard" className="flex items-center space-x-3" onClick={onClose}>
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-brown-600 to-brown-800 rounded-lg flex items-center justify-center">
-              <span className="text-lg sm:text-xl font-bold">B</span>
-            </div>
-            <div>
-              <h1 className="text-lg sm:text-xl font-display font-bold">BATERMAL</h1>
+            <img src="/logo.png" alt="BATERMAL Logo" className="h-8 sm:h-10" />
+            <div className="hidden sm:block">
               <p className="text-xs text-brown-400">Smart Thermal Battery</p>
             </div>
           </Link>
